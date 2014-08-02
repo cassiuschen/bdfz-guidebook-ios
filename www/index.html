@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="bdfz-guidebook">
+    <div ng-controller="SideMenuController">
+      <ion-nav-view></ion-nav-view>
+    </div>
+    <script id="about.html" type="text/ng-template">
+      <ion-view title="关于">
+        <ion-content>
+          <ion-list>
+            <div class="item">
+              北大附中学生手册
+              </div>
+            <div class="item">
+              Ver.3.0.0-p76
+              </div>
+            <div class="item item-divider">
+              开发者
+              </div>
+            <a class="item" href="tel:15910364815">
+              陈紫晟
+              </a>
+            <a class="item" href="mailto:chzsh1995@gmail.com">
+              chzsh1995@gmail.com
+              </a>
+            <div class="item item-divider">
+              本程序基于MIT协议开源。
+              </div>
+              </ion-list>
+              </ion-content>
+              </ion-view>
+    </script>
+    <script id="books.html" type="text/ng-template">
+      <ion-view title="手册列表">
+        <ion-content>
+          <ion-refresher pulling-text="向下拉动以更新数据..." on-refresh="doRefresh()" />
+          <ion-list padding="true">
+            <ion-item ng-repeat="book in books" href="#/mobile/books/{{book.id}}" type="item-text-wrap">
+              <h2>{{book.title}}</h2>
+              <p>{{book.version}}</p>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-view>
+    </script>
+    <script id="home.html" type="text/ng-template">
+      <ion-view title="Welcome">
+        <ion-content padding="true">
+          <div class="row row-bottom">
+            <div class="col">
+              <h2 style="color:#888;">北大附中学生手册</h2>
+            </div>
+            <div class="col">
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p>{{version}}最后修订</p>
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+    <script id="show_article.html" type="text/ng-template">
+      <ion-view title="{{article.title}}">
+        <ion-content>
+          <div class="list card">
+            <style type="text/css">
+              img {width: 100% !important;}
+            </style>
+            <div class="item">
+              <h2>{{article.title}}</h2>
+              <p>{{article.updated_at}}最后修订</p>
+            </div>
+            <div class="item item-body" ng-bind-html="article.content"></div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+    <script id="show_book.html" type="text/ng-template">
+      <ion-view title="{{book.title}}">
+        <ion-content>
+          <ion-refresher pulling-text="向下拉动以更新数据..." on-refresh="doRefresh()" />
+          <ion-list>
+            <ion-item ng-repeat="article in articles" href="#/mobile/books/{{article.book_id}}/{{article.id}}">{{article.title}}</ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-view>
+    </script>
+    <script id="sidebar.html" type="text/ng-template">
+      <ion-side-menus>
+        <ion-side-menu-content>
+          <ion-nav-bar class="bar-positive">
+            <ion-nav-back-button class="button-icon ion-arrow-left-c"></ion-nav-back-button>
+          </ion-nav-bar>
+          <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeft()"></button>
+          </ion-nav-buttons>
+          <ion-nav-view animation="no-animation" name="menuContent">
+        </ion-nav-view>
+        </ion-side-menu-content>
+        <ion-side-menu side="left">
+          <ion-header-bar class="bar-assertive">
+            <h1 class="title">{{SideBarTitle || "北大附中学生手册"}}</h1>
+          </ion-header-bar>
+          <ion-content>
+            <ul class="list">
+              <a class="item" href="#/mobile/home" ng-click="toggleLeft()">首页</a>
+              <a class="item" href="#/mobile/books" ng-click="toggleLeft()">浏览内容</a>
+              <a class="item" href="#/mobile/about" ng-click="toggleLeft()">关于</a>
+            </ul>
+          </ion-content>
+        </ion-side-menu>
+      </ion-side-menus>
+    </script>
+  </body>
+</html>

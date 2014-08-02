@@ -1,0 +1,8 @@
+2014-08-03 00:47:08.745 bdfz-guidebook-ios[12674:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-03 00:47:08.809 bdfz-guidebook-ios[12674:70b] Unlimited access to network resources
+2014-08-03 00:47:08.974 bdfz-guidebook-ios[12674:70b] [CDVTimer][keyboard] 0.104010ms
+2014-08-03 00:47:08.974 bdfz-guidebook-ios[12674:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-03 00:47:08.975 bdfz-guidebook-ios[12674:70b] [CDVTimer][statusbar] 0.508010ms
+2014-08-03 00:47:08.975 bdfz-guidebook-ios[12674:70b] [CDVTimer][TotalPluginStartup] 1.648009ms
+2014-08-03 00:47:09.160 bdfz-guidebook-ios[12674:70b] Resetting plugins due to page load.
+2014-08-03 00:47:09.421 bdfz-guidebook-ios[12674:70b] Finished load of: file:///Users/cassiuschen/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/97369DBA-D312-4F4E-8638-023D9F30F8BE/bdfz-guidebook-ios.app/www/index.html#/mobile/home
